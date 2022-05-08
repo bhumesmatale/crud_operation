@@ -1,0 +1,35 @@
+<div *ngIf="alert" class="alert alert-sucess alert-dismissible fade show" role="alert">
+    <strong>Success!</strong>
+    your data has been entered
+    <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<form [formGroup]="addform" (ngSubmit)="addList()">
+    <div class="form-group">
+        <label for="exampleInputEmail1"> FirstName<span style="color:red;">*</span></label>
+        <input type="text" class="form-control" formControlName="firstName" placeholder="Enter first Name">
+        <span style="color:#DC3545; font-size: 10px;" *ngIf="firstName.invalid && firstName.touched">FirstName is
+            Required</span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">LastName<span style="color:red;">*</span></label>
+        <input type="text" class="form-control" formControlName="lastName" placeholder="Enter last name">
+        <span style="color:#DC3545; font-size: 10px;" *ngIf="lastName.invalid &&lastName.touched">LastName is
+            Required</span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Phone No<span style="color:red;">*</span></label>
+        <input type="text" class="form-control" formControlName="phone" placeholder="Enter phone no" appAppAlphabetOnly
+            required maxlength="10" minlength="1">
+        <span style="color:#DC3545; font-size: 10px;" *ngIf="phone.invalid && phone.touched">
+            <small class="text-danger" *ngIf="phone.errors?.required">
+                Please Enter the Mobile Number(only Number)!
+            </small>
+            <small class="text-danger" *ngIf="phone.errors?.pattern">
+                Please only 10 Digit No Format!
+            </small>
+        </span>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
