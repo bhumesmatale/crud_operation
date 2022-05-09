@@ -1,5 +1,5 @@
 <div *ngIf="alert" class="alert alert-sucess alert-dismissible fade show" role="alert">
-    <strong>Success!</strong>
+    <strong style="color:green;">Success!</strong>
     your data has been entered
     <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="close">
         <span aria-hidden="true">&times;</span>
@@ -31,5 +31,5 @@
             </small>
         </span>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary"  (click)="toggleShow()"[disabled]="!addform.valid">Submit</button>
 </form>

@@ -30,12 +30,12 @@ export class UpdateComponent implements OnInit {
     })
   }
   collection() {
-    // alert("submit")
     console.warn("item", this.updateform.value)
     this.contactservice.update(this.router.snapshot.params.id, this.updateform.value).subscribe((result) => {
       console.warn("result", result)
       this.alert = true
     })
+    this.updateform.reset({})
   }
   closeAlert() {
     this.alert = false

@@ -19,6 +19,7 @@ export class AddComponent implements OnInit {
   constructor(private contactservice: ContactService) { }
   alert: boolean = false
   f: any;
+  isShow: boolean = false;
   ngOnInit(): void {
   }
   addList() {
@@ -30,5 +31,9 @@ export class AddComponent implements OnInit {
   }
   closeAlert() {
     this.alert = false
+  }
+
+  toggleShow() {
+    this.isShow = !this.isShow;
   }
 }
